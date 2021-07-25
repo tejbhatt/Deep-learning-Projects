@@ -1,0 +1,49 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- user_submitted_password
+- user_wants_to_check_attendance
+- user_submitted_usn
+- user_wants_to_check_upcoming_holidays
+- user_wants_to_check_marks
+- user_wants_to_check_admission_status
+responses:
+  utter_greet:
+  - buttons:
+    - payload: I would like to know about my attendance
+      title: Attendance
+    - payload: I would like to know about my marks
+      title: Marks
+    text: Hey! Hope you are doing well. Below are few of the suggestions
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_ask_usn:
+  - text: Please enter your University seat number
+  utter_ask_password:
+  - text: Please enter your password
+  utter_admission_info:
+  - text: The admission for 2021 will happen in September
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Have a good day!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+actions:
+- validate_credentials_and_display_marks
+- action_admission_info
+- action_ask_password
+- action_ask_usn
+- validate_credentials_and_display_attendance
+- display_upcoming_holidays

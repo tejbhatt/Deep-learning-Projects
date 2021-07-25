@@ -1,0 +1,74 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: User wants to check marks
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_wants_to_check_marks
+  - action: action_ask_usn
+  - intent: user_submitted_usn
+  - action: action_ask_password
+  - intent: user_submitted_password
+  - action: validate_credentials_and_display_marks
+  - action: utter_goodbye
+
+- story: User wants to check attendance
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_wants_to_check_attendance
+  - action: action_ask_usn
+  - intent: user_submitted_usn
+  - action: action_ask_password
+  - intent: user_submitted_password
+  - action: validate_credentials_and_display_attendance
+  - action: utter_goodbye
+
+- story: User wants to check upcoming holidays
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_wants_to_check_upcoming_holidays
+  - action: display_upcoming_holidays
+  - action: utter_goodbye
+
+- story: User wants to check admission status
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_wants_to_check_admission_status
+  - action: action_admission_info
+  - action: utter_goodbye
+
+
+
+
